@@ -10,13 +10,15 @@ using _180automation;
 
 namespace _180automation.PageObjects
 {
-    class LoginPage
+    public class LoginPage
     {
        public static IWebDriver _Driver;
         [FindsBy(How =How.Id,Using = "txtUser")]
        public  IWebElement username;
         [FindsBy(How = How.Id, Using = "txtPassword")]
         public IWebElement password;
+        //public IWebElement password = _Driver.FindElement(By.Id("txtPassword"));
+      
        // [FindsBy(How = How.Id, Using = "TestLogin")]
        
         public IWebElement LoginBtn;
@@ -30,9 +32,10 @@ namespace _180automation.PageObjects
         }
         public void login()
         {
-            username.SendKeys("RRMsupport43");
+            username.SendKeys("PZLsupport1");
+         
             password.Clear();
-            password.SendKeys("!QAZ2wsx");
+            password.SendKeys("Hpy2017!");
             
         }
         public void submit()
@@ -59,11 +62,7 @@ namespace _180automation.PageObjects
             }
         }
 
-        public void logout()
-        {
-             var logout =_Driver.FindElement(By.ClassName("dislink_yellow"));
-             logout.Click();
-        }
+       
     }
 
 }

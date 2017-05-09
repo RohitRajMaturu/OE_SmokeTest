@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -14,14 +15,18 @@ namespace _180automation.PageObjects
         public static IWebDriver _Driver;
         //[FindsBy(How = How.Id, Using = "TestLogout")]
         //public IWebElement LogoutBtn;
-
-        //[FindsBy(How = How.ClassName, Using = "link_yellow")]
-        LoginPage _loginPage = new LoginPage(_Driver);
+        public string Title="ONE-EIGHTY";
+        [FindsBy(How = How.Id, Using = "celMenu41")]
+        public IWebElement CustomerMenu;
+        [FindsBy(How = How.Id, Using = "HM_Item4_1")]
+        public IWebElement Retail;
+        
 
 
         public HomePage(IWebDriver Driver)
         {
             _Driver = Driver;
+            
             PageFactory.InitElements(_Driver, this);
         }
 
@@ -39,16 +44,29 @@ namespace _180automation.PageObjects
             }
         }
 
-        public bool IsLogoutBtnVisible()
+        public bool IsHomePage()
         {
-            return checkAlert();
+            if (_Driver.Title.Contains(Title))
+                return true;
+            else
+                return false;
         }
 
-        public void logout()
+        public void FindCustomerMenu()
         {
-            var logout = _Driver.FindElement(By.ClassName("dislink_yellow"));
-            logout.Click();
-            _loginPage.IsLoginBtnVisible();
+            Actions build = new Actions(_Driver);
+            build.MoveToElement(CustomerMenu).Perform();
+                       
+        }
+        public void FindRetailMenu()
+        {
+            Actions build = new Actions(_Driver);
+            build.MoveToElement(Retail).Perform();
+
+        }
+        public void AddCustomer()
+        {
+            _Driver.FindElement(By.Id("HM_Item4_1_2")).Click();
         }
     }
 }
