@@ -21,10 +21,12 @@ namespace _180automation.PageObjects
             PageFactory.InitElements(_Driver, this);
         }
 
-
+       public string temp1;
+       public string temp2;
         [FindsBy(How = How.Id, Using = "cmdSave")]
         public IWebElement btnSave;
-
+        [FindsBy(How = How.Id, Using = "cmbTitle")]
+        public IWebElement cmbTitle;
 
         [FindsBy(How = How.Id, Using = "txtLastName")]
         public IWebElement txtLastName;
@@ -46,6 +48,7 @@ namespace _180automation.PageObjects
         
 
         public bool IsOnCustomerAddPage()
+
         {
             return btnSave.Displayed;
         }
@@ -61,8 +64,10 @@ namespace _180automation.PageObjects
             txtHPhone1.SendKeys("456");
             txtHPhone2.SendKeys("7890");
             txtEMail.SendKeys("abc@smoketest.com");
+            temp1 = cmbTitle.Text;
+            temp2 = txtLastName.Text;
         }
-
+       
         public void SaveCustomer()
         {
             btnSave.Click();

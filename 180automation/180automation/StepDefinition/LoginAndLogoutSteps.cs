@@ -11,54 +11,46 @@ namespace _180automation.StepDefinition
     [Binding]
     public class LoginAndLogoutSteps
     {
-        LoginPage _loginPage = new LoginPage(TestSetup.Driver);
+        //LoginPage _loginPage = new LoginPage(TestSetup.Driver);
         CustomerFind _CustomerFind = new CustomerFind(TestSetup.Driver);
         HomePage _homePage = new HomePage(TestSetup.Driver);
         CustomerAdd _customerAdd = new CustomerAdd(TestSetup.Driver);
         CustomerView _customerView = new CustomerView(TestSetup.Driver);
+        //VehicleSelection _VehicleSelection = new VehicleSelection(TestSetup.Driver);
         IWebDriver _driver = TestSetup.Driver;
 
-        [Given(@"I have launched the application")]
-        public void GivenIHaveLaunchedTheApplication()
-        {
-            _driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
-        }
 
-        [When(@"I have logged into the application")]
-        public void WhenIHaveLoggedIntoTheApplication()
-        {
-            _loginPage.login();
-        }
-
-        [When(@"I agree to sell a car")]
-        public void WhenIAgreeToSellACar()
-        {
-            _loginPage.submit();
-        }
-
-        [When(@"I should check for alertBox")]
-        public void WhenIShouldCheckForAlertBox()
-        {
-            _homePage.checkAlert();
-        }
-
-        [Then(@"I should land on home page")]
-        public void ThenIShouldLandOnHomePage()
-        {
-            Assert.IsTrue(_homePage.IsHomePage());
-        }
-
-        [When(@"I choose Customers Menu")]
-        //public void WhenIChooseCustomersMenu()
+        //[Given(@"I have launched the application")]
+        //public void GivenIHaveLaunchedTheApplication()
         //{
-        //    Assert.IsTrue(_homePage.FindCustomerMenu());
+        //    _driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
         //}
 
-        //[Then(@"I should Land on AddCustomerPage")]
-        //public void ThenIShouldLandOnAddCustomerPage()
+        //[When(@"I have logged into the application")]
+        //public void WhenIHaveLoggedIntoTheApplication()
         //{
-        //    ScenarioContext.Current.Pending();
+        //    _loginPage.login();
         //}
+
+        //[When(@"I agree to sell a car")]
+        //public void WhenIAgreeToSellACar()
+        //{
+        //    _loginPage.submit();
+        //}
+
+        //[When(@"I should check for alertBox")]
+        //public void WhenIShouldCheckForAlertBox()
+        //{
+        //    _homePage.checkAlert();
+        //}
+
+        //[Then(@"I should land on home page")]
+        //public void ThenIShouldLandOnHomePage()
+        //{
+        //    Assert.IsTrue(_homePage.IsHomePage());
+        //}
+
+      
         [Given(@"I hover on customer menu and then on Retail menu")]
         public void GivenIHoverOnCustomerMenuAndThenOnRetailMenu()
         {
@@ -130,8 +122,24 @@ namespace _180automation.StepDefinition
         [Then(@"I should redirect to Customer View Screen")]
         public void ThenIShouldRedirectToCustomerViewScreen()
         {
-           Assert.IsTrue(_customerView.IsOnCustomerViewPage());
+            Assert.IsTrue(_customerView.IsOnCustomerViewPage());
+
+            //Assert.IsTrue(_customerAdd.txtLastName.Text == "Morgan");
         }
+
+
+        //[When(@"I click on Create a quote")]        
+       
+        //public void WhenIClickOnCreateAQuote()
+        //{
+        //    _customerView.CreateQuote();
+        //}
+
+        //[Then(@"It should redirect to select Vehicle page")]
+        //public void ThenItShouldRedirectToSelectVehiclePage()
+        //{
+        //    _VehicleSelection.isVehicleSelectPage();
+        //}
 
 
 

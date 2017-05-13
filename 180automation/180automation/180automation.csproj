@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytescout.Spreadsheet, Version=2.7.0.1554, Culture=neutral, PublicKeyToken=f7dd1bd9d40a50eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytescout.Spreadsheet.2.70.1553\lib\net40\Bytescout.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -57,10 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByteScout\CreateSpreadsheet.cs" />
     <Compile Include="PageObjects\CustomerAdd.cs" />
     <Compile Include="PageObjects\CustomerFind.cs" />
     <Compile Include="PageObjects\CustomerView.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
+    <Compile Include="PageObjects\VehicleSelection.cs" />
     <Compile Include="TestSetup.cs" />
     <Compile Include="Features\SpecFlowFeature1.feature.cs">
       <AutoGen>True</AutoGen>

@@ -12,6 +12,7 @@ namespace _180automation.PageObjects
 {
    public class CustomerView
     {
+        CustomerAdd _CustomerAdd = new CustomerAdd(TestSetup.Driver);
         public static IWebDriver _Driver;
 
         public CustomerView(IWebDriver Driver)
@@ -27,10 +28,29 @@ namespace _180automation.PageObjects
         [FindsBy(How = How.Id, Using = "button2")]
         public IWebElement button2;
 
+      
+
+        //[FindsBy(How = How.ClassName, Using = "txt_table lastnametxt")]
+        //public IWebElement LastNameVerify;
+
+
         public bool IsOnCustomerViewPage()
         {
+            //return (_CustomerAdd.txtLastName.Text == "Morgan");
             return (cmdEdit.Displayed && button2.Displayed);
         }
+        //public void CreateQuote()
+        //{
+        //  IList<IWebElement>   Quote = _Driver.FindElements(By.CssSelector(".btn_input"));
+        //    //foreach (IWebElement Q in Quote)
+        //    //{
+        //    //    if (Q.va.Contains("Create a Quote"))
+        //    //    {
+        //    //        Q.Click();
+        //    //    }
+        //    //}
+
+        //}
 
 
 

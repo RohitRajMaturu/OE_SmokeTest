@@ -1,15 +1,15 @@
 ﻿Feature: Login and Logout
 	
-@Smoke Test
-Scenario: Logging in
-	Given I have launched the application
-	When  I have logged into the application
-	When I agree to sell a car
-	And I should check for alertBox
-	Then I should land on home page
+#@Smoke Test
+#Scenario: Logging in
+#	Given I have launched the application
+#	When  I have logged into the application
+#	When I agree to sell a car
+#	And I should check for alertBox
+#	Then I should land on home page
 	
 @Smoke Test
-Scenario: Adding Customer
+Scenario: Adding Customer Info
 	Given I am on Homepage
 	When I hover on customer menu 
 	And I hover on Retail Menu
@@ -21,6 +21,9 @@ Scenario: Adding Customer
 	Given I should fill the form with basic info
 	When I click on Save Customer Info
 	Then I should redirect to Customer View Screen
+	
+
+
 
 	
      
