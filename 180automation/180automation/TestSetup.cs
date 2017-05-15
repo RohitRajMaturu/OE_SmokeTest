@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium.Remote;
 using System.Diagnostics;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace _180automation
 {
@@ -23,27 +25,19 @@ namespace _180automation
         [BeforeTestRun]
         public static void initialise()
         {
-            //DesiredCapabilities caps = DesiredCapabilities.InternetExplorer();
-            //caps.SetCapability("EnableNativeEvents", false);
-            //caps.SetCapability("ignoreZoomSetting", true);
+
             InternetExplorerOptions caps = new InternetExplorerOptions { IgnoreZoomLevel = true };
-
             Driver = new InternetExplorerDriver(caps);
-
-            // @"C:\Users\pullurul\Documents\180 test projects\180automation\packages\Selenium.WebDriver.IEDriver.3.3.0\driver\"
-            Driver.Manage().Window.Maximize();
-            Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
-
-            // Driver.Navigate().GoToUrl("http://localhost/webasp/login.asp");
+            Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
+            IWebElement username = Driver.FindElement(By.Id("txtUser"));
+            IWebElement Password = Driver.FindElement(By.Id("txtPassword"));
+            username.SendKeys("RRMsupport43");
+            Password.Clear();
+            Password.SendKeys("1qaz@WSX");
+            //IWebElement  LoginBtn = Driver.FindElement(By.XPath("/html/body/form/table/tbody/tr/td[1]/table[2]/tbody/tr/td/table/tbody/tr[3]/td[2]/input"));
+            IWebElement LoginBtn = Driver.FindElement(By.XPath("//table/tbody/tr[3]/td[2]/input"));
+            LoginBtn.Click();
         }
-
-
-        //     [AfterTestRun]
-        //public static void CleanUp()
-        //{
-        //    Driver.Close();
-        //}
-
-        //}
+        
     }
 }

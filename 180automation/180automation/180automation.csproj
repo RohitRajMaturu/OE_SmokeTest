@@ -37,6 +37,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +60,7 @@
   <ItemGroup>
     <Compile Include="PageObjects\CustomerAdd.cs" />
     <Compile Include="PageObjects\CustomerFind.cs" />
+    <Compile Include="PageObjects\CustomerSearch.cs" />
     <Compile Include="PageObjects\CustomerView.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="TestSetup.cs" />

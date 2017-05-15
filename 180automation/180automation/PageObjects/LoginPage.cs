@@ -13,14 +13,7 @@ namespace _180automation.PageObjects
     public class LoginPage
     {
        public static IWebDriver _Driver;
-        [FindsBy(How =How.Id,Using = "txtUser")]
-       public  IWebElement username;
-        [FindsBy(How = How.Id, Using = "txtPassword")]
-        public IWebElement password;
-        //public IWebElement password = _Driver.FindElement(By.Id("txtPassword"));
-      
-       // [FindsBy(How = How.Id, Using = "TestLogin")]
-       
+        
         public IWebElement LoginBtn;
         
 
@@ -32,10 +25,7 @@ namespace _180automation.PageObjects
         }
         public void login()
         {
-            username.SendKeys("PZLsupport1");
-         
-            password.Clear();
-            password.SendKeys("Hpy2017!");
+           
             
         }
         public void submit()

@@ -16,30 +16,21 @@ namespace _180automation.StepDefinition
         HomePage _homePage = new HomePage(TestSetup.Driver);
         CustomerAdd _customerAdd = new CustomerAdd(TestSetup.Driver);
         CustomerView _customerView = new CustomerView(TestSetup.Driver);
+        CustomerSearch _customerSearch=new CustomerSearch(TestSetup.Driver);
         IWebDriver _driver = TestSetup.Driver;
+        
 
-        [Given(@"I have launched the application")]
-        public void GivenIHaveLaunchedTheApplication()
-        {
-            _driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
-        }
-
-        [When(@"I have logged into the application")]
-        public void WhenIHaveLoggedIntoTheApplication()
-        {
-            _loginPage.login();
-        }
-
-        [When(@"I agree to sell a car")]
-        public void WhenIAgreeToSellACar()
-        {
-            _loginPage.submit();
-        }
-
-        [When(@"I should check for alertBox")]
+        [Then(@"I should check for alertBox")]
         public void WhenIShouldCheckForAlertBox()
         {
             _homePage.checkAlert();
+        }
+
+
+        [Then(@"I should check for Passwordchange box")]
+        public void WhenIShouldCheckForPasswordchangeBox()
+        {
+            _homePage.CheckForPasswordChange();
         }
 
         [Then(@"I should land on home page")]
@@ -133,6 +124,24 @@ namespace _180automation.StepDefinition
            Assert.IsTrue(_customerView.IsOnCustomerViewPage());
         }
 
+
+        [When(@"I click on Find customer")]
+        public void WhenIClickOnFindCustomer()
+        {
+            _homePage.SearchCustomer();
+        }
+
+        [Then(@"I should land on customersearch page")]
+        public void ThenIShouldLandOnCustomersearchPage()
+        {
+            Assert.IsTrue(_customerSearch.IsCustomerSearchPage());
+        }
+
+        [Then(@"I can search for a customer by lastname or firstname or company name or phone Number")]
+        public void WhenICanSearchForACustomerByLastnameOrFirstnameOrCompanyNameOrPhoneNumber()
+        {
+            _customerSearch.EnterAndSearch();
+        }
 
 
     }
