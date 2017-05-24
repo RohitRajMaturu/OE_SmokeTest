@@ -21,7 +21,6 @@ namespace _180automation.PageObjects
         {
             _Driver = Driver;
             PageFactory.InitElements(_Driver, this);
-            
         }
         public void login()
         {

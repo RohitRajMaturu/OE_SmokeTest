@@ -17,9 +17,10 @@ namespace _180automation.StepDefinition
         CustomerAdd _customerAdd = new CustomerAdd(TestSetup.Driver);
         CustomerView _customerView = new CustomerView(TestSetup.Driver);
         CustomerSearch _customerSearch=new CustomerSearch(TestSetup.Driver);
+        InventoryPage _inventoryPage=new InventoryPage(TestSetup.Driver);
         IWebDriver _driver = TestSetup.Driver;
-        
 
+        //Scenario I (check for the alert)
         [Then(@"I should check for alertBox")]
         public void WhenIShouldCheckForAlertBox()
         {
@@ -39,25 +40,10 @@ namespace _180automation.StepDefinition
             Assert.IsTrue(_homePage.IsHomePage());
         }
 
-        [When(@"I choose Customers Menu")]
-        //public void WhenIChooseCustomersMenu()
-        //{
-        //    Assert.IsTrue(_homePage.FindCustomerMenu());
-        //}
 
-        //[Then(@"I should Land on AddCustomerPage")]
-        //public void ThenIShouldLandOnAddCustomerPage()
-        //{
-        //    ScenarioContext.Current.Pending();
-        //}
-        [Given(@"I hover on customer menu and then on Retail menu")]
-        public void GivenIHoverOnCustomerMenuAndThenOnRetailMenu()
-        {
-            _homePage.FindCustomerMenu();
-        }
 
-            
 
+        //Scenario II (adding a customer)
         [Given(@"I am on Homepage")]
         public void GivenIAmOnHomepage()
         {
@@ -75,6 +61,7 @@ namespace _180automation.StepDefinition
         {
             _homePage.FindRetailMenu();
         }
+
         [When(@"I click on Add customer")]
         public void WhenIClickOnAddCustomer()
         {
@@ -85,7 +72,6 @@ namespace _180automation.StepDefinition
         {
             Assert.IsTrue(_CustomerFind.IsCustomerFindPage());
         }
-
 
 
         [When(@"I can search for a customer by lastname")]
@@ -123,8 +109,14 @@ namespace _180automation.StepDefinition
         {
            Assert.IsTrue(_customerView.IsOnCustomerViewPage());
         }
+        [Then(@"I should validate the added customer")]
+        public void ThenIShouldValidateTheAddedCustomer()
+        {
+           Assert.IsTrue(_customerView.validateAddedCustomer());
+        }
 
 
+        //Scenario III (finding a customer)
         [When(@"I click on Find customer")]
         public void WhenIClickOnFindCustomer()
         {
@@ -142,6 +134,56 @@ namespace _180automation.StepDefinition
         {
             _customerSearch.EnterAndSearch();
         }
+
+        [Then(@"I should check for the selected record")]
+        public void ThenIShouldCheckForTheSelectedRecord()
+        {
+            _customerSearch.IsresultAvailable();
+        }
+
+
+
+
+        //Scenario IV Inventory Search
+        [When(@"I hover on Inventory menu")]
+        public void WhenIHoverOnInventoryMenu()
+        {
+            _homePage.FindInventorylMenu();
+        }
+
+        [When(@"I hover on FindVehicles")]
+        public void WhenIHoverOnFindVehicles()
+        {
+            _homePage.FindVehiclesMenu();
+        }
+
+
+        [When(@"I will click on All Vehicles")]
+        public void WhenIWillClickOnAllVehicles()
+        {
+            _homePage.SearchInventory();
+        }
+
+        [Then(@"I should land on inventory page for selecting vehicles")]
+        public void ThenIShouldLandOnInventoryPageForSelectingVehicles()
+        {
+            Assert.IsTrue(_inventoryPage.IsInventoryPage());
+        }
+
+
+        [Then(@"I should enter any search criteria and click on Find Vehicles")]
+        public void ThenIShouldEnterAnySearchCriteriaAndClickOnFindVehicles()
+        {
+            _inventoryPage.SearchCriteria();
+        }
+
+        [Then(@"I should see records for that search criteria")]
+        public void ThenIShouldSeeRecordsForThatSearchCriteria()
+        {
+            _inventoryPage.IsResultAvailable();
+        }
+
+
 
 
     }

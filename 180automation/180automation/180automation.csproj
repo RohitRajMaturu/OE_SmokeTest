@@ -63,6 +63,7 @@
     <Compile Include="PageObjects\CustomerSearch.cs" />
     <Compile Include="PageObjects\CustomerView.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
+    <Compile Include="PageObjects\InventoryPage.cs" />
     <Compile Include="TestSetup.cs" />
     <Compile Include="Features\SpecFlowFeature1.feature.cs">
       <AutoGen>True</AutoGen>

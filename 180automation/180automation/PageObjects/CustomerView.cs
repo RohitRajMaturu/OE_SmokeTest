@@ -23,6 +23,9 @@ namespace _180automation.PageObjects
         [FindsBy(How = How.Id, Using = "cmdEdit")]
         public IWebElement cmdEdit;
 
+        [FindsBy(How = How.ClassName, Using = "firstnametxt")] public IWebElement firstName;
+        [FindsBy(How = How.ClassName, Using = "emailtxt")]
+        public IWebElement emailId;
 
         [FindsBy(How = How.Id, Using = "button2")]
         public IWebElement button2;
@@ -33,7 +36,10 @@ namespace _180automation.PageObjects
         }
 
 
-
+        public bool validateAddedCustomer()
+        {
+            return (firstName.Text== "Morgan" && emailId.Text== "abc@smoketest.com");
+        }
 
     }
 }

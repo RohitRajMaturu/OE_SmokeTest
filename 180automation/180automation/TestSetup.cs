@@ -29,12 +29,15 @@ namespace _180automation
             InternetExplorerOptions caps = new InternetExplorerOptions { IgnoreZoomLevel = true };
             Driver = new InternetExplorerDriver(caps);
             Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
+            //Setting the broweser to 100%
+            Driver.FindElement(By.TagName("html")).SendKeys(Keys.Control + "0");
+
             IWebElement username = Driver.FindElement(By.Id("txtUser"));
             IWebElement Password = Driver.FindElement(By.Id("txtPassword"));
+           
             username.SendKeys("RRMsupport43");
             Password.Clear();
             Password.SendKeys("1qaz@WSX");
-            //IWebElement  LoginBtn = Driver.FindElement(By.XPath("/html/body/form/table/tbody/tr/td[1]/table[2]/tbody/tr/td/table/tbody/tr[3]/td[2]/input"));
             IWebElement LoginBtn = Driver.FindElement(By.XPath("//table/tbody/tr[3]/td[2]/input"));
             LoginBtn.Click();
         }

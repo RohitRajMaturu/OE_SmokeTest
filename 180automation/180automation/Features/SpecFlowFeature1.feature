@@ -19,6 +19,7 @@ Scenario: Adding Customer
 	Given I should fill the form with basic info
 	When I click on Save Customer Info
 	Then I should redirect to Customer View Screen
+	Then I should validate the added customer
 
 @Smoke Test
 Scenario: Finding Customer
@@ -28,7 +29,20 @@ Scenario: Finding Customer
 	And  I click on Find customer
 	Then I should land on customersearch page
 	Then I can search for a customer by lastname or firstname or company name or phone Number
+	Then I should check for the selected record 
 
+
+
+@SmokeTest
+Scenario: Finding A Vehicle
+	Given I am on Homepage
+	When I hover on Inventory menu
+	And I hover on FindVehicles 
+	And I will click on All Vehicles
+	Then I should land on inventory page for selecting vehicles
+	Then I should enter any search criteria and click on Find Vehicles
+	Then I should see records for that search criteria
+	Then I am on crct page
 
 	
      

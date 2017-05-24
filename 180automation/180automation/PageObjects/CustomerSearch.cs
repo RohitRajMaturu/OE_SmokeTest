@@ -28,6 +28,8 @@ namespace _180automation.PageObjects
 
 
         [FindsBy(How = How.Id, Using = "cmdFind")] public IWebElement btnFind;
+        [FindsBy(How = How.Id, Using = "tblSearchResult")]
+        public IWebElement tblResult;
 
         public bool IsCustomerSearchPage()
         {
@@ -41,6 +43,16 @@ namespace _180automation.PageObjects
         {
             txtLname.SendKeys("morgan");
             btnFind.Click();
+        }
+
+        public void IsresultAvailable()
+        {
+            IList<IWebElement> allElement = _Driver.FindElements(By.Id("tblSearchResult"));
+            foreach (IWebElement element in allElement)
+            {
+                string cellText = element.Text;
+                Console.WriteLine(cellText);
+            }
         }
 
 
