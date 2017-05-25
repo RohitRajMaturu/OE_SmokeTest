@@ -112,31 +112,17 @@ namespace _180automation.PageObjects
         public void FindInventorylMenu()
         {
             Actions build = new Actions(_Driver);
-            build.MoveToElement(InventoryMenu).Perform();
+            build.MoveToElement(InventoryMenu).Build().Perform();
 
         }
         public void FindVehiclesMenu()
         {
-            //_Driver.FindElement(By.TagName("html")).SendKeys(Keys.Control + "+");
             Actions build = new Actions(_Driver);
-            build.MoveToElement(findVehicle).Perform();
-            Thread.Sleep(2000);
-
-            //IList<IWebElement> InventoryList = new List<IWebElement>();
-            //InventoryList = findVehicle.FindElements(By.TagName("<div>"));
-            //InventoryList[2].Click();
+            build.MoveToElement(findVehicle).Build().Perform();
         }
         public void SearchInventory()
         {
-            //IList<IWebElement> divs = _Driver.FindElements(By.TagName("div"));
-            
-            //foreach (IWebElement div in divs )
-            //{
-            //    if  (div.GetAttribute("id").Equals("HM_Item3_1_2"))
-            //    {
-            //        div.Click();
-            //    }
-            //}
+           _Driver.FindElement(By.Id("HM_Item3_1_3")).Click();
         }
 
 

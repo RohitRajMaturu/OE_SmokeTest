@@ -26,11 +26,10 @@ namespace _180automation
         public static void initialise()
         {
 
-            InternetExplorerOptions caps = new InternetExplorerOptions { IgnoreZoomLevel = true };
+            InternetExplorerOptions caps = new InternetExplorerOptions { IgnoreZoomLevel = true,EnableNativeEvents = false};
             Driver = new InternetExplorerDriver(caps);
             Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
             //Setting the broweser to 100%
-            Driver.FindElement(By.TagName("html")).SendKeys(Keys.Control + "0");
 
             IWebElement username = Driver.FindElement(By.Id("txtUser"));
             IWebElement Password = Driver.FindElement(By.Id("txtPassword"));
