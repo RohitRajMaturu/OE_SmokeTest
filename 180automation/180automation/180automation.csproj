@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjects\OE_CustomerAdd.cs" />
     <Compile Include="PageObjects\CustomerAdd.cs" />
     <Compile Include="PageObjects\CustomerFind.cs" />
     <Compile Include="PageObjects\CustomerSearch.cs" />

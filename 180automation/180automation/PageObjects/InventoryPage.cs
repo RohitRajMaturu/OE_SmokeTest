@@ -44,8 +44,8 @@ namespace _180automation.PageObjects
         {
             var selectStatus = new SelectElement(DdlStatus);
             var selectMake=new SelectElement(Ddlmake);
-            selectStatus.SelectByIndex(0);
-            selectMake.SelectByIndex(0);
+            selectStatus.SelectByIndex(1);
+            selectMake.SelectByIndex(1);
             Btnfindvehicles.Click();
         }
 

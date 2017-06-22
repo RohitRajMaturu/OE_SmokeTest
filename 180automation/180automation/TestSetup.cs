@@ -26,17 +26,19 @@ namespace _180automation
         public static void initialise()
         {
 
-            InternetExplorerOptions caps = new InternetExplorerOptions { IgnoreZoomLevel = true,EnableNativeEvents = false};
-            Driver = new InternetExplorerDriver(caps);
+            //InternetExplorerOptions caps = new InternetExplorerOptions();
+            Driver = new InternetExplorerDriver();
             Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["App_URL"]);
             //Setting the broweser to 100%
 
             IWebElement username = Driver.FindElement(By.Id("txtUser"));
             IWebElement Password = Driver.FindElement(By.Id("txtPassword"));
            
-            username.SendKeys("RRMsupport43");
+            username.SendKeys("LXPsupport1");
             Password.Clear();
-            Password.SendKeys("1qaz@WSX");
+            Password.SendKeys("MOMdad12*");
+            //IWebElement OELoginBtn = Driver.FindElement(By.Id("chkMobile"));
+            //OELoginBtn.Click();
             IWebElement LoginBtn = Driver.FindElement(By.XPath("//table/tbody/tr[3]/td[2]/input"));
             LoginBtn.Click();
         }

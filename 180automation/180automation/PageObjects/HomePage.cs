@@ -85,11 +85,13 @@ namespace _180automation.PageObjects
                 return true;
             else
                 return false;
+          
         }
 
         public void FindCustomerMenu()
         {
             Actions build = new Actions(_Driver);
+            _Driver.FindElement(By.XPath("//a[contains(@href,'/webasp/oe/main.asp')]")).Click();
             build.MoveToElement(CustomerMenu).Perform();
 
         }
